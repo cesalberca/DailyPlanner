@@ -12,16 +12,16 @@
     </head>
     <body>
         <main class="wrapper">
-            <aside class="tasks">
+            <aside class="tasks" data-draggable="target" >
                 <h1>Tareas</h1>
                 <ul id="tasks">
-                    <li id="1" draggable="true">Comprar</li>
-                    <li id="2" draggable="true">Salir</li>
-                    <li id="3" draggable="true">Comer</li>
-                    <li id="4" draggable="true">Estudiar</li>
+                    <li data-draggable="item">Comprar</li>
+                    <li data-draggable="item">Salir</li>
+                    <li data-draggable="item">Comer</li>
+                    <li data-draggable="item">Estudiar</li>
                 </ul>
             </aside>
-            <section id="dailyPlanner" class="day">
+            <section id="dailyPlanner" data-draggable="target" class="day">
                 
             </section>
         </main>

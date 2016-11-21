@@ -1,37 +1,36 @@
 (function () {
-
-    let tasks = document.querySelectorAll('#tasks > li')
-    let dailyPlanner = document.querySelector('#dailyPlanner')
-
-    const dragStartHandler = (e) => {
-        e.dataTransfer.setData('Text', e.target.id)
-    }
-
-    const dropHandler = (e) => {
-        e.preventDefault()
-        let data = e.dataTransfer.getData('Text')
-        e.target.appendChild(document.getElementById(data))
-    }
-
-    const dragOverHandler = (e) => {
-        e.preventDefault()
-        e.dataTransfer.dropEffect = 'move'
-    }
-
     const addEventsTasks = () => {
-        for (let i = 0; i < tasks.length; i++) {
-            tasks[i].addEventListener('dragstart', dragStartHandler, false)
+        let items = document.querySelectorAll('[data-draggable="item"]')
+        for (let i = 0; i < items.length; i++) {
+            items[i].setAttribute('draggable', 'true')
         }
     }
 
-    const addEventsDay = () => {
-        dailyPlanner.addEventListener('drop', dropHandler, false)
-        dailyPlanner.addEventListener('dragover', dragOverHandler, false)
-    }
-    
     const init = () => {
+
         addEventsTasks()
-        addEventsDay()        
+
+        let item = null
+
+        document.addEventListener('dragstart', (e) => {
+            item = e.target
+            e.dataTransfer.setData('Text', '')
+        }, false) 
+
+        document.addEventListener('dragover', (e) => {
+            if (item) e.preventDefault()
+        }, false)
+
+        document.addEventListener('drop', (e) => {
+            if (e.target.getAttribute('data-draggable') === 'target') {
+                e.target.appendChild(item)
+                e.preventDefault()
+            }
+        }, false)
+
+        document.addEventListener('dragend', (e) => {
+            item = null
+        }, false)
     }
 
     init()

@@ -4,17 +4,12 @@
     let dailyPlanner = document.querySelector('#dailyPlanner')
 
     const dragStartHandler = (e) => {
-        console.log(e)
         e.dataTransfer.setData('Text', e.target.id)
-    }
-
-    const dragEndHandler = (e) => {
-        console.log(e)
     }
 
     const dropHandler = (e) => {
         e.preventDefault()
-        var data = e.dataTransfer.getData("Text")
+        let data = e.dataTransfer.getData('Text')
         e.target.appendChild(document.getElementById(data))
     }
 
@@ -22,14 +17,21 @@
         e.preventDefault()
         e.dataTransfer.dropEffect = 'move'
     }
-    
-    const init = () => {
+
+    const addEventsTasks = () => {
         for (let i = 0; i < tasks.length; i++) {
             tasks[i].addEventListener('dragstart', dragStartHandler, false)
         }
+    }
 
+    const addEventsDay = () => {
         dailyPlanner.addEventListener('drop', dropHandler, false)
         dailyPlanner.addEventListener('dragover', dragOverHandler, false)
+    }
+    
+    const init = () => {
+        addEventsTasks()
+        addEventsDay()        
     }
 
     init()

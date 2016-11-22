@@ -14,7 +14,8 @@ body {
 }
 
 
-li[data-draggable="item"] {
+span[data-draggable="item"] {
+    display: block;
     list-style: none;
     padding: 0.5rem 1rem;
 
@@ -58,8 +59,9 @@ li[data-draggable="item"] {
     background-color: beige;
 }
 
-.daily-planner__container > li {
+.daily-planner__container > span {
     text-align: center;
+    display: inline-block;
 }
 
 .daily-planner__container {

@@ -27,7 +27,6 @@ span[data-draggable="item"] {
     padding: 0;
     margin: 0; 
     position: relative;
-    overflow: hidden;
     width: 20%;
     min-height: 100vh;
     
@@ -77,11 +76,51 @@ span[data-draggable="item"] {
 
 .add-tasks {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 10px;
+    right: -25px;
     z-index: 999; 
 }
 
 .btn__add {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  
+  background-color: rgba(127, 255, 212, 0.7);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 50px rgba(127, 255, 212, 0.7);
+  transition: 0.25s ease all;
+}
 
+.btn__add:focus {
+  outline: none;
+}
+
+.btn__add:hover {
+  cursor: pointer;
+  transform: rotateZ(90deg)
+}
+
+.btn__add:before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: calc(50% - 2px);
+  display: block;
+  width: 4px;
+  height: 80%;
+  background-color: white;
+}
+
+.btn__add:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 10%;
+  display: block;
+  width: 80%;
+  height: 4px;
+  background-color: white;
 }

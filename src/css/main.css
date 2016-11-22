@@ -5,20 +5,64 @@ html, body {
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #383838;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
-    min-height: 100vh
 }
 
-.tasks {
-    width: 30%;
+
+li[data-draggable="item"] {
+    list-style: none;
+    padding: 0.5rem 1rem;
+
+    border-radius: 4px;
     background-color: aquamarine;
 }
 
-.day {
-    width: 70%;
+.tasks {
+    padding: 0;
+    margin: 0; 
+    position: relative;
+    overflow: hidden;
+    width: 20%;
+    min-height: 100vh;
+    
+    background-color: aquamarine;
+    box-shadow: 0 0 50px rgba(127, 255, 212, 0.7);
+}
+
+.tasks:after {
+    content: "Tareas";
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: 100% 90%;
+    transform: rotateZ(-90deg);
+
+    font-size: 4rem;
+    opacity: 0.6;
+}
+
+.tasks__container {
+    height: calc(100vh - 1rem);
+    width: calc(100%);
+    padding: 0;
+    margin: 0;
+}
+
+.daily-planner {
+    width: 80%;
     background-color: beige;
+}
+
+.daily-planner__container > li {
+    text-align: center;
+}
+
+.daily-planner__container {
+    width: 100%;
+    height: 100%;
 }

@@ -6,6 +6,10 @@
         }
     }
 
+    const addTask = () => {
+        const newTask = prompt('Introduce una nueva tarea')
+    }
+
     const init = () => {
 
         addEventsTasks()
@@ -31,6 +35,9 @@
         document.addEventListener('dragend', (e) => {
             item = null
         }, false)
+
+        const bAddTask = document.querySelector('#add-task')
+        bAddTask.addEventListener('click', (e) => { addTask() }, false)
     }
 
     init()

@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/cesalberca/DailyPlanner/issues"
   },
-  "homepage": "https://github.com/cesalberca/DailyPlanner#readme"
+  "homepage": "https://github.com/cesalberca/DailyPlanner#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.2"
+  }
 }

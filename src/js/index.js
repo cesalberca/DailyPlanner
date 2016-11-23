@@ -1,4 +1,6 @@
 (function () {
+    const swal = require('sweetalert')
+
     const addEventsTasks = () => {
         let items = document.querySelectorAll('[data-draggable="item"]')
         for (let i = 0; i < items.length; i++) {
@@ -8,6 +10,12 @@
 
     const addTask = () => {
         const newTask = prompt('Introduce una nueva tarea')
+        swal({
+            title: 'Error!',
+            text: 'Here\'s my error message!',
+            type: 'error',
+            confirmButtonText: 'Cool'
+        })
     }
 
     const init = () => {
